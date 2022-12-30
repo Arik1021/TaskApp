@@ -1,6 +1,7 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.bottomnavigation41.ui.onBoard
 
-import BoardModel
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -9,8 +10,8 @@ import com.example.bottomnavigation41.R
 
 class BoardAdapter(
     fm: FragmentManager,
-    var listenerSkip: () -> Unit,
-    var listenerNext: () -> Unit
+    private var listenerSkip: () -> Unit,
+    private var listenerNext: () -> Unit
 ) : FragmentStatePagerAdapter(fm) {
 
     private val listBoarding = arrayOf(

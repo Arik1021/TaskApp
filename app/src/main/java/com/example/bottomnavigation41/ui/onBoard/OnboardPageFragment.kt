@@ -1,6 +1,5 @@
 package com.example.bottomnavigation41.ui.onBoard
 
-import BoardModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.bottomnavigation41.R
 import com.example.bottomnavigation41.databinding.FragmentOnboardPageBinding
+import com.example.bottomnavigation41.utils.Preferences
 
 
 class OnboardPageFragment(
-    var listenerSkip: () -> Unit,
-    var listenerNext: () -> Unit
+    private var listenerSkip: () -> Unit,
+    private var listenerNext: () -> Unit
 ) : Fragment() {
     private lateinit var binding: FragmentOnboardPageBinding
     override fun onCreateView(
@@ -39,7 +39,7 @@ class OnboardPageFragment(
             val data = it.getSerializable("onboard") as BoardModel
             binding.tvTitleBoard.text = data.title
             binding.tvDescriptionBoard.text = data.description
-            data.img?.let { it1 -> binding.imgBoard.setImageResource(it1.toInt()) }
+            data.img?.let { it1 -> binding.imgBoard.setImageResource(it1) }
             binding.btnSkipBoard.isVisible = data.isLast == false
             binding.btnNextBoard.isVisible = data.isLast == false
             binding.btnStartBoard.isVisible = data.isLast == true
@@ -56,6 +56,7 @@ class OnboardPageFragment(
         }
         binding.btnStartBoard.setOnClickListener {
             findNavController().navigate(R.id.navigation_home)
+            Preferences(requireContext()).setBoardingShowed(true)
         }
     }
 }

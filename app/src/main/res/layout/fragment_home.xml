@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    tools:menu="@menu/menu_home"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 <androidx.recyclerview.widget.RecyclerView
@@ -18,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="@color/main_color"
         android:src="@drawable/ic_baseline_archive_24"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,5 +27,18 @@
 
 
         />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_delete_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:backgroundTint="@color/main_color"
+        android:src="@drawable/ic_baseline_delete_24"
+        app:layout_constraintBottom_toTopOf="@+id/btn_add_fab"
+        android:layout_marginBottom="20dp"
+
+
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

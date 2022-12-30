@@ -8,34 +8,56 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.example.bottomnavigation41.R
+import com.example.bottomnavigation41.databinding.FragmentOnBoardBinding
 import com.example.bottomnavigation41.databinding.FragmentProfileBinding
+import com.example.bottomnavigation41.loadImage
+import com.example.bottomnavigation41.utils.Preferences
 
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
-    private val binding get() = _binding!!
+    lateinit var binding: FragmentProfileBinding
+    private lateinit var prше eference: Preferences
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentProfileBinding.inflate(LayoutInflater.from(context), container, false)
+        return binding.root
+    }
 
     private val mGetContent: ActivityResultLauncher<String> =
         registerForActivityResult(
-            ActivityResultContracts.GetContent()
+            ActivityResultContracts.GetContent()// вместо байнд использую расширение глайда и сохраняю картинку
         ) { uri ->
-            binding.ivProfile.setImageURI(uri)
-            Log.e("ololo", "Ссылка на фото: ${uri} ", )
+            binding.ivProfile.loadImage(uri.toString())
+
+            Log.e("lol", "Ссылка на фото: $uri ")
+            Preferences(requireContext()).saveImageUri(uri.toString())
+
         }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        initListeners()
-        return binding.root
-    }
 
     private fun initListeners() {
         binding.ivProfile.setOnClickListener {
             mGetContent.launch("image/*")
+
         }
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        preference = Preferences(requireContext())
+        binding.ivProfile.loadImage(preference.getImageUri())//здесь картинка загружается на пользовательский экран
+
+        initListeners()
+
     }
 
     override fun onDestroyView() {
