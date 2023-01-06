@@ -19,7 +19,7 @@ import com.example.bottomnavigation41.utils.Preferences
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     lateinit var binding: FragmentProfileBinding
-    private lateinit var prше eference: Preferences
+    private lateinit var preference: Preferences
 
 
     override fun onCreateView(
