@@ -7,5 +7,18 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="save">Save</string>
     <string name="title">Title</string>
+    <string name="phone">phone number</string>
+    <string name="reg">registration</string>
+    <string name="email">Email</string>
+    <string name="your_name">Your Name</string>
+    <string name="number_phone">Number Phone</string>
+    <string name="your_gender">Your Gender</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="save_profile">Save</string>
+    <string name="description">description</string>
+    <string name="todo">TODO</string>
+    <string name="skip">SKIP</string>
+    <string name="next">Next</string>
+    <string name="start">Start</string>
 
 </resources>

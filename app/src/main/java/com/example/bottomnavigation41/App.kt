@@ -1,10 +1,9 @@
 package com.example.bottomnavigation41
 
+
 import android.app.Application
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.example.bottomnavigation41.data.local.room.TaskBase
-import com.example.bottomnavigation41.data.local.room.TaskDao
 
 class App: Application() {
     override fun onCreate() {

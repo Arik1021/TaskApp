@@ -6,6 +6,6 @@ import com.bumptech.glide.Glide
 
 fun View.loadImage(url: String){
 
-    Glide.with(this).load(url).centerCrop().circleCrop().into(this as ImageView)
+    Glide.with(this).load(url).centerCrop().placeholder(R.drawable.ic_baseline_account_circle_24).into(this as ImageView)
 
 }

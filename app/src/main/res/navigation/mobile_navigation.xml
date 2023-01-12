@@ -41,6 +41,11 @@
         android:id="@+id/onboardPageFragment"
         android:name="com.example.bottomnavigation41.ui.onBoard.OnboardPageFragment"
         android:label="OnboardPageFragment" />
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.bottomnavigation41.ui.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" />
 
 
 </navigation>

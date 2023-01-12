@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.bottomnavigation41.ui.home.TaskModel
 
 @Dao
@@ -22,10 +23,11 @@ interface TaskDao {
 
 //ORDER BY title DESC
 
-
-
     @Delete
     fun deleteTask(task: TaskModel )
+
+    @Update
+    fun updateTask(taskModel: TaskModel)
 }
 
 //Dao это интерфейс,в котором описываем, что делать

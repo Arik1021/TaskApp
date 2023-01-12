@@ -31,13 +31,27 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_dashboard,
                 R.id.navigation_notifications,
                 R.id.newTaskFragment,
-                R.id.navigation_profile
+                R.id.navigation_profile,
+                R.id.authFragment
             )
         )
 
-        if(Preferences(applicationContext).isBoardingShowed()){
+        navController.navigate(R.id.authFragment)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.newTaskFragment || destination.id == R.id.onBoardFragment || destination.id == R.id.authFragment) {
+                navView.visibility = View.GONE
+            } else {
+                navView.visibility = View.VISIBLE
+            }
+            if (destination.id == R.id.onBoardFragment || destination.id == R.id.authFragment) {
+                supportActionBar?.hide()
+            }
+        }
+
+        if (Preferences(applicationContext).isBoardingShowed()) {
             navController.navigate(R.id.navigation_home)
-        }else{
+        } else {
             navController.navigate(R.id.onBoardFragment)
         }
 
@@ -45,15 +59,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.newTaskFragment || destination.id == R.id.onBoardFragment ) {
-                navView.visibility = View.GONE
-            } else {
-                navView.visibility = View.VISIBLE
-            }
-            if( destination.id == R.id.onBoardFragment){
-                supportActionBar?.hide()
-        }
-        }
+
     }
 }

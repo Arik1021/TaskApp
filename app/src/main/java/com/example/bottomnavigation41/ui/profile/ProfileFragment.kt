@@ -8,9 +8,6 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
-import com.example.bottomnavigation41.R
-import com.example.bottomnavigation41.databinding.FragmentOnBoardBinding
 import com.example.bottomnavigation41.databinding.FragmentProfileBinding
 import com.example.bottomnavigation41.loadImage
 import com.example.bottomnavigation41.utils.Preferences
@@ -26,7 +23,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentProfileBinding.inflate(LayoutInflater.from(context), container, false)
         return binding.root
     }
