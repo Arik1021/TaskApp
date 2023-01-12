@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.bottomnavigation41.R
 import com.example.bottomnavigation41.databinding.FragmentOnboardPageBinding
 import com.example.bottomnavigation41.utils.Preferences
+import com.google.firebase.auth.FirebaseAuth
 
 
 class OnboardPageFragment(
@@ -17,6 +18,7 @@ class OnboardPageFragment(
     private var listenerNext: () -> Unit
 ) : Fragment() {
     private lateinit var binding: FragmentOnboardPageBinding
+    private var auth = FirebaseAuth.getInstance()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,7 +57,16 @@ class OnboardPageFragment(
             listenerSkip.invoke()
         }
         binding.btnStartBoard.setOnClickListener {
-            findNavController().navigate(R.id.navigation_home)
+
+
+
+            if(auth.currentUser != null){
+                findNavController().navigateUp()
+
+            }else{
+                findNavController().navigate(R.id.authFragment)
+
+            }
             Preferences(requireContext()).setBoardingShowed(true)
         }
     }

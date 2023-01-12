@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.bottomnavigation41.R
 import com.example.bottomnavigation41.databinding.FragmentProfileBinding
 import com.example.bottomnavigation41.loadImage
 import com.example.bottomnavigation41.utils.Preferences
+import com.google.firebase.auth.FirebaseAuth
 
 
 class ProfileFragment : Fragment() {
@@ -45,8 +48,38 @@ class ProfileFragment : Fragment() {
             mGetContent.launch("image/*")
 
         }
+        binding.signOut.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+            findNavController().navigate(R.id.authFragment)
+
+
+        }
 
     }
+
+//    fun saveText() {
+//        val ed: SharedPreferences.Editor = .edit()
+//        ed.putString(SAVED_TEXT, etText.getText().toString())
+//        ed.commit()
+
+//        App.db.Dao().insert(//запиши модельку, где картинка ткая, тайтл такой и описание такое.
+//            ProfileModel(
+//                name = binding.etName.text.toString(),
+//                email = binding.etEmail.text.toString(),
+//                number_phone = binding.etPhoneNumber.text.toString(),
+//                gender = binding.etGender.text.toString(),
+//                birthday = binding.etDate.text.toString()
+//            )
+//        )
+//    }
+//    AuthUI.getInstance().signOut(this).addOnCompleteListener {
+//        // do something here
+//    }
+//    fun loadText() {
+//
+//    }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -61,5 +94,7 @@ class ProfileFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 
 }

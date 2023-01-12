@@ -8,7 +8,9 @@
     <string name="save">Save</string>
     <string name="title">Title</string>
     <string name="phone">phone number</string>
+    <string name="code">enter your code</string>
     <string name="reg">registration</string>
+    <string name="confirm">Confirm</string>
     <string name="email">Email</string>
     <string name="your_name">Your Name</string>
     <string name="number_phone">Number Phone</string>
@@ -20,5 +22,7 @@
     <string name="skip">SKIP</string>
     <string name="next">Next</string>
     <string name="start">Start</string>
+    <string name="_996">+996 </string>
+    <string name="sign_out">sign out</string>
 
 </resources>

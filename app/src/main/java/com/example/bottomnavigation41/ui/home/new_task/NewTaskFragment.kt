@@ -66,7 +66,7 @@ class NewTaskFragment : Fragment() {
     }
 
     private fun initListeners() {
-        binding.btnSave.setOnClickListener {
+        binding.btnSend.setOnClickListener {
             if (arguments != null) {
                updateData(task)
             } else {
@@ -83,13 +83,13 @@ class NewTaskFragment : Fragment() {
     private fun initViews() {
 
         if (arguments != null) {
-            binding.btnSave.text = " update"
+            binding.btnSend.text = " update"
             task = arguments?.getSerializable(EDIT_KEY) as TaskModel
             binding.etTitle.setText(task.title)
             binding.etDesc.setText(task.description)
             binding.ivNewTask.setImageURI(task.imgUri.toUri())
         } else {
-            binding.btnSave.text = " Save"
+            binding.btnSend.text = " Save"
         }
 
 // каритинку надо установать

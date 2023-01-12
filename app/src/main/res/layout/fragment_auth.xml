@@ -19,7 +19,7 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animationView"
             android:layout_width="200dp"
-            android:layout_height="400dp"
+            android:layout_height="300dp"
             android:layout_marginStart="65dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,18 +33,67 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="@string/phone"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/animationView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_phone"
                 android:layout_width="match_parent"
+                android:text="@string/_996"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <com.fraggjkee.smsconfirmationview.SmsConfirmationView
+            android:id="@+id/sms_code_view"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:scv_codeLength="6"
+            app:scv_showCursor="true"
+            app:scv_smsDetectionMode="manual"
+            app:scv_symbolBackgroundColor="@android:color/black"
+            app:scv_symbolBorderActiveColor="?colorPrimary"
+            app:scv_symbolBorderColor="@android:color/white"
+            app:scv_symbolBorderCornerRadius="8dp"
+            app:scv_symbolBorderWidth="2dp"
+            app:scv_symbolHeight="52dp"
+            app:scv_symbolTextColor="@color/white"
+            app:scv_symbolTextSize="24sp"
+            app:scv_symbolWidth="38dp"
+            app:scv_symbolsSpacing="12dp"
+            app:layout_constraintTop_toBottomOf="@id/animationView"
+
+
+            tools:ignore="MissingConstraints" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_layout_code"
+            android:visibility="gone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/code"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/animationView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_save"
+            android:id="@+id/btn_send"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -57,6 +106,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_layout_phone"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_confirm"
+            android:visibility="gone"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingVertical="12dp"
+            android:text="@string/confirm"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sms_code_view"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

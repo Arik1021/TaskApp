@@ -22,7 +22,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center|top"
         android:layout_marginTop="50dp"
-        android:background="@drawable/ic_baseline_archive_24"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -109,9 +109,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-
-
+    <Button
+        android:id="@+id/sign_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92pt"
+        android:text="@string/sign_out"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/transparate"
+        app:layout_constraintBottom_toBottomOf="@+id/button_save_profile"
+        app:layout_constraintEnd_toStartOf="@+id/button_save_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_save_profile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

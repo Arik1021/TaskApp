@@ -30,8 +30,6 @@ class Preferences(context: Context) {
 
 
     var editor: Editor = sharedPref.edit()
-
-
     fun setName(): String {
         return sharedPref.getString("name", "").toString()
     }
